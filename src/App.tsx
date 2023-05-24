@@ -99,14 +99,109 @@ function App() {
 
   return (
     <Container maxWidth="sm">
-      {/* !!!TODO
-      Fill this with the calculator UI, use the components from the DigitButton and OperationButton
-      use CalculatorBase as the base component for the calculator and OutputContainer for the output display(should be at the top)
-      Use Grid Component for the layout
-      FIY: = should be its separate button
-      */}
+      <CalculatorBase elevation={3}>
+        <Grid container spacing={1}>
+          <Grid item xs={12}>
+            <OutputContainer data-testid="output">{currentValue}</OutputContainer>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={clear}
+            >
+              AC
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={del}
+            >
+              DEL
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={percent}
+            >
+              %
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => selectOperation("/")}
+            >
+              ÷
+            </Button>
+          </Grid>
+          {/* Digit Buttons */}
+          <DigitButton digit={7} onClick={setDigit} />
+          <DigitButton digit={8} onClick={setDigit} />
+          <DigitButton digit={9} onClick={setDigit} />
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => selectOperation("*")}
+            >
+              *
+            </Button>
+          </Grid>
+          <DigitButton digit={4} onClick={setDigit} />
+          <DigitButton digit={5} onClick={setDigit} />
+          <DigitButton digit={6} onClick={setDigit} />
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => selectOperation("-")}
+            >
+              -
+            </Button>
+          </Grid>
+          <DigitButton digit={1} onClick={setDigit} />
+          <DigitButton digit={2} onClick={setDigit} />
+          <DigitButton digit={3} onClick={setDigit} />
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => selectOperation("+")}
+            >
+              +
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <DigitButton digit={0} onClick={setDigit} />
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={() => setDigit(".")}
+            >
+              .
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              fullWidth
+              variant="outlined"
+              onClick={equals}
+            >
+              =
+            </Button>
+          </Grid>
+        </Grid>
+      </CalculatorBase>
     </Container>
-  )
+  );
 }
 
 export default App;
