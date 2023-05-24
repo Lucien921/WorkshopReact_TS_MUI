@@ -18,8 +18,9 @@ export const OperationButton: React.FC<GridOperationButtonProps> = ({
   return (
     <Grid item xs={3}>
       <Button
-        /* !!!TODO set the button to fullwidth, variant outlined
-      and set the onClick to selectOperation fuction */
+        fullWidth
+        variant="outlined"
+        onClick={() => selectOperation(operation)}
         selected={selectedOperation === operation}
       >
         {operation}

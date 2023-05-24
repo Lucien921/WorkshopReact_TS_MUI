@@ -1,14 +1,14 @@
 import { Button, Grid } from "@mui/material";
 
-// TODO: replace with our own interface
-const xs = 3;
-const digit = 0;
-const enterDigit = (dt: any) => { return dt };
+interface DigitButtonProps {
+  digit: number;
+  onClick: (digit: number) => void;
+}
 
-export const DigitButton = () => {
+export const DigitButton: React.FC<DigitButtonProps> = ({ digit, onClick }) => {
   return (
-    <Grid item xs={xs}>
-      <Button fullWidth variant="outlined" onClick={() => enterDigit(digit)}>
+    <Grid item>
+      <Button fullWidth variant="outlined" onClick={() => onClick(digit)}>
         {digit}
       </Button>
     </Grid>
